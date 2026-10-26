@@ -1,0 +1,21 @@
+#!/bin/bash
+#
+# Fast, VM-free tests only. The integration scenarios that boot the ISO in
+# QEMU live in test/integration.d/ and run via ./test/integration.
+
+set -euo pipefail
+
+ROOT=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")/.." && pwd)
+
+for test in "$ROOT"/test/unit/*-test.sh; do
+  printf '==> %s\n' "${test#$ROOT/}"
+  bash "$test"
+done
+
+printf '==> test/unit/test_*.py\n'
+# -t test/unit, not the repo root: discovery names modules relative to -t, and
+# from the root that is `test.unit.<name>`, which imports Python's own stdlib
+# `test` package, since there is no test/__init__.py to shadow it. Every module
+# then fails to load ("No module named 'test.unit'") and the run reports a
+# single failed loader instead of running the tests.
+python3 -m unittest discover -t "$ROOT/test/unit" -s "$ROOT/test/unit"

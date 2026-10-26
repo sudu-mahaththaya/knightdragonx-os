@@ -1,0 +1,16 @@
+alsa-firmware
+amd-ucode
+base
+base-devel
+efibootmgr
+intel-ucode
+linux-firmware
+linux-kdx
+linux-kdx-headers
+limine
+kdx-keyring
+openssh
+pipewire
+snapper
+sof-firmware
+tailscale

@@ -1,0 +1,16 @@
+#!/bin/bash
+kdx-pkg-add rclone
+mkdir -p ~/.config/rclone
+
+access_key=$(op read "op://Shared/Cloudflare Buckets/iso.kdx.org/access_key_id" --account KDX)
+secret_access_key=$(op read "op://Shared/Cloudflare Buckets/iso.kdx.org/secret_access_key" --account KDX)
+endpoint=$(op read "op://Shared/Cloudflare Buckets/iso.kdx.org/endpoint" --account KDX)
+
+cat > ~/.config/rclone/rclone.conf << EOF
+[KDX]
+type = s3
+provider = Cloudflare
+access_key_id = $access_key
+secret_access_key = $secret_access_key
+endpoint = $endpoint
+EOF

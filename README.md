@@ -127,6 +127,3 @@ Original copyright notices are preserved. See [LICENSE](LICENSE) for details.
 
 Open an issue: [github.com/sudu-mahaththaya/knightdragonx-os/issues](https://github.com/sudu-mahaththaya/knightdragonx-os/issues)
 ```
-
----
-

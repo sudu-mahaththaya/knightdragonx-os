@@ -3,7 +3,7 @@
 
 iso_name="kdx"
 iso_label="KDX_$(date --date="@${SOURCE_DATE_EPOCH:-$(date +%s)}" +%Y%m)"
-iso_publisher="KDX <https://kdx.org>"
+iso_publisher="KnightDragonX OS"
 iso_application="KDX Installer"
 iso_version="$(date --date="@${SOURCE_DATE_EPOCH:-$(date +%s)}" +%Y.%m.%d)"
 install_dir="arch"
